@@ -1,18 +1,35 @@
 /* Main Stylesheet for AlkeWallet */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    padding-top: 50px;
-    background-color: #424042;
-    text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  padding-top: 50px;
+  background: linear-gradient(135deg, #1b354d 0%, #738b8f 50%, #1b496e 100%);
+  min-height: 100vh;
+  color: white;
+  text-align: center;
 }
 
 .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #1d446d;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.card-3d {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  padding: 2rem;
+  transform-style: preserve-3d;
+  transition: transform 0.3s;
+}
+
+.card-3d:hover {
+  transform: translateY(-5px);
 }
