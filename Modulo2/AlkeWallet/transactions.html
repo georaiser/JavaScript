@@ -7,18 +7,91 @@
     <title>AlkeWallet - Transactions</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
     <main class="container">
-        <h1>Recent Transactions</h1>
-        <ul id="transactionsList">
-            <!-- Transactions list -->
-            <li>Example: Deposit +$1000</li>
-        </ul>
-        <a href="menu.html">Back to menu</a>
+        <!-- Header / Search -->
+        <!-- d-flex: Flexbox layout, align-items-center: Center vertically, mb-4: Margin bottom 4 -->
+        <div class="d-flex align-items-center mb-4">
+            <!-- text-white: White text color, me-3: Margin right 3 -->
+            <a href="menu.html" class="text-white me-3"><i class="bi bi-chevron-left fs-4"></i></a>
+            <!-- mb-0: No bottom margin, flex-grow-1: Take avail space, text-center: Center text -->
+            <h4 class="mb-0 flex-grow-1 text-center pe-4">Transactions</h4>
+        </div>
+        
+        <!-- mb-4: Add spacing below search -->
+        <div class="mb-4">
+            <!-- position-relative: Parent for absolute icon -->
+            <div class="position-relative">
+                <!-- position-absolute: Overlay icon, text-muted: Gray color -->
+                <i class="bi bi-search position-absolute text-muted" style="top: 18px; left: 15px;"></i>
+                <input type="text" placeholder="Search for..." style="padding-left: 40px;">
+            </div>
+        </div>
+
+        <!-- Transaction List -->
+        <div class="transaction-list">
+            <!-- Item 1 -->
+            <div class="transaction-item">
+                <div class="t-icon">
+                    <!-- text-warning: Yellow/Orange color -->
+                    <i class="bi bi-lightning-charge-fill text-warning"></i>
+                </div>
+                <div class="t-details">
+                    <span class="t-title">Electricity</span>
+                    <span class="t-date">21 Feb, 2024</span>
+                </div>
+                <div class="t-amount negative">-$121.36</div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="transaction-item">
+                <div class="t-icon">
+                    <i class="bi bi-cart-fill text-info"></i>
+                </div>
+                <div class="t-details">
+                    <span class="t-title">McDonalds</span>
+                    <span class="t-date">19 Feb, 2024</span>
+                </div>
+                <div class="t-amount negative">-$245.29</div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="transaction-item">
+                <div class="t-icon">
+                    <i class="bi bi-arrow-down-left-circle-fill text-success"></i>
+                </div>
+                <div class="t-details">
+                    <span class="t-title">Funds Received</span>
+                    <span class="t-date">17 Feb, 2024</span>
+                </div>
+                <div class="t-amount positive">+$700.00</div>
+            </div>
+            
+            <!-- Item 4 -->
+            <div class="transaction-item">
+                <div class="t-icon">
+                    <i class="bi bi-music-note-beamed text-primary"></i>
+                </div>
+                <div class="t-details">
+                    <span class="t-title">Spotify Subscr.</span>
+                    <span class="t-date">11 Feb, 2024</span>
+                </div>
+                <div class="t-amount negative">-$21.36</div>
+            </div>
+        </div>
     </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="menu.html" class="nav-item"><i class="bi bi-wallet2"></i></a>
+        <a href="transactions.html" class="nav-item active"><i class="bi bi-list-ul"></i></a>
+        <a href="#" class="nav-item"><i class="bi bi-qr-code-scan"></i></a>
+        <a href="#" class="nav-item"><i class="bi bi-person"></i></a>
+    </nav>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
