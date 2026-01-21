@@ -124,8 +124,22 @@ input:focus {
 
 .nav-item {
   color: #888;
-  font-size: 1.5rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   transition: color 0.3s;
+}
+
+.nav-item i {
+  font-size: 1.5rem;
+  margin-bottom: 2px;
+}
+
+.nav-item span {
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 
 .nav-item.active, .nav-item:hover {
@@ -138,6 +152,16 @@ input:focus {
 .balance-card {
   text-align: left;
   margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 15px;
+}
+
+.balance-graph {
+  width: 300px; /* Fixed width for side-by-side layout */
+  height: 50px;
+  grid-column: auto; /* Reset grid placement */
 }
 
 .balance-title {
