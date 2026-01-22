@@ -83,14 +83,20 @@ a:hover { color: #ffffff; text-decoration: underline; }
 }
 
 /* Avatar Components */
+.avatar-lg { width: 100px; height: 100px; font-size: 3rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px auto; background-color: rgba(255, 255, 255, 0.1); border: 2px solid var(--primary-accent); }
 .avatar-circle-sm { width: 50px; height: 50px; }
-.avatar-circle-xs { width: 40px; height: 40px; }
+.avatar-circle-xs { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background-color: rgba(255, 255, 255, 0.1); border: 2px solid var(--primary-accent); color: white; }
 
 /* =========================================
    3. COMPONENTS
    ========================================= */
 
 /* --- Buttons --- */
+.logo-icon {
+  font-size: 4rem;
+  color: var(--primary-accent);
+}
+
 .btn, .btn-submit, .btn-welcome {
   display: inline-block;
   text-decoration: none;
