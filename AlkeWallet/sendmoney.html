@@ -19,7 +19,7 @@
         <!-- align-items-center: Vertically center items -->
         <!-- mb-4: Margin bottom spacing -->
         <div class="d-flex align-items-center mb-4">
-            <a href="menu.html" class="text-white me-3"><i class="bi bi-chevron-left fs-4"></i></a>
+            <a href="menu.html" class="text-highlight me-3"><i class="bi bi-chevron-left fs-4"></i></a>
             <h4 class="mb-0 flex-grow-1 text-center pe-4">Send Money</h4>
         </div>
 
@@ -29,36 +29,36 @@
             <!-- Contact 1 -->
             <a href="#" class="contact-card text-decoration-none">
                 <div class="bg-secondary rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center avatar-circle-sm">
-                    <i class="bi bi-person-fill fs-3 text-white"></i>
+                    <i class="bi bi-person-fill fs-3 text-highlight"></i>
                 </div>
-                <div class="small text-white">Mom</div>
+                <div class="small text-highlight">Mom</div>
             </a>
             <!-- Contact 2 -->
             <a href="#" class="contact-card text-decoration-none">
                 <div class="bg-secondary rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center avatar-circle-sm">
-                     <i class="bi bi-person-fill fs-3 text-white"></i>
+                     <i class="bi bi-person-fill fs-3 text-highlight"></i>
                 </div>
-                <div class="small text-white">Dad</div>
+                <div class="small text-highlight">Dad</div>
             </a>
             <!-- Contact 3 -->
             <a href="#" class="contact-card text-decoration-none">
                 <div class="bg-secondary rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center avatar-circle-sm">
-                     <i class="bi bi-person-fill fs-3 text-white"></i>
+                     <i class="bi bi-person-fill fs-3 text-highlight"></i>
                 </div>
-                <div class="small text-white">Mike</div>
+                <div class="small text-highlight">Mike</div>
             </a>
             <!-- Add New -->
             <a href="#" class="contact-card text-decoration-none">
                 <div class="rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center avatar-circle-sm avatar-circle-dashed">
-                     <i class="bi bi-plus-lg fs-4 text-white"></i>
+                     <i class="bi bi-plus-lg fs-4 text-highlight"></i>
                 </div>
-                <div class="small text-white">New</div>
+                <div class="small text-highlight">New</div>
             </a>
         </div>
 
         <form id="sendMoneyForm" class="text-start glass-form">
             <div class="mb-3">
-                <label class="small mb-1 text-white-50">Contact</label>
+                <label class="small mb-1 text-muted">Contact</label>
                 <div class="input-group-icon">
                     <i class="bi bi-person input-icon-left"></i>
                     <input type="text" id="recipientInput" placeholder="ID or Contact" required class="input-with-padding">
@@ -66,10 +66,10 @@
             </div>
             
             <div class="mb-3">
-                <label class="small mb-1 text-white-50">Amount</label>
+                <label class="small mb-1 text-muted">Amount</label>
                 <div class="input-group-icon">
-                    <span class="text-white input-icon-left">$</span>
-                    <input type="number" id="sendAmount" placeholder="0.00" required style="padding-left: 35px; font-size: 1.2rem;">
+                    <span class="text-highlight input-icon-left">$</span>
+                    <input type="number" id="sendAmount" placeholder="0.00" required class="input-amount">
                 </div>
             </div>
             <button type="submit" class="btn w-100 mt-2 btn-submit shadow-none">Send Now</button>
