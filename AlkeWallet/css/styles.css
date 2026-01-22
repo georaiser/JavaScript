@@ -1,63 +1,115 @@
 /* Main Stylesheet for AlkeWallet */
 
+:root {
+  /* Colors */
+  --primary-accent: #00C4B4;
+  --primary-dark: #1a2980;
+  --bg-dark-start: #434c57;
+  --bg-dark-end: #000000;
+  
+  /* Text */
+  --text-main: #eeeeee;
+  --text-muted: #aaaaaa;
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(20, 20, 20, 0.8);
+  --glass-bg-light: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: 20px;
+  
+  /* Dimensions & Spacing */
+  --container-width: 500px;
+  --radius-lg: 20px;
+  --radius-md: 15px;
+  --radius-sm: 12px;
+}
+
 /* =========================================
-   1. CORE STYLES & VARIABLES
+   1. CORE STYLES
    ========================================= */
 body {
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  padding-top: 10px;
-  background: linear-gradient(135deg, #434c57 0%, #000000 100%);
+  padding: 10px 0 0 0;
+  background: linear-gradient(135deg, var(--bg-dark-start) 0%, var(--bg-dark-end) 100%);
   min-height: 100vh;
-  color: #eeeeee;
+  color: var(--text-main);
   text-align: center;
 }
 
-a {
-  color: #cccccc;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-a:hover {
-  color: #ffffff;
-  text-decoration: underline;
-}
+a { color: #cccccc; text-decoration: none; transition: color 0.3s; }
+a:hover { color: #ffffff; text-decoration: underline; }
 
 /* =========================================
-   2. LAYOUT
+   2. LAYOUT & UTILITIES
    ========================================= */
 .container {
-  width: 90%; /* Wider on mobile */
-  max-width: 500px; /* Max width for app feel */
-  margin: auto; /* Reduced bottom margin */
-  background: rgba(20, 20, 20, 0.8);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 90%;
+  max-width: var(--container-width);
+  margin: auto;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-  border-radius: 20px;
+  border-radius: var(--radius-lg);
   padding: 1.5rem;
-  overflow-y: auto; /* Scroll internally */
-  padding-bottom: 100px; /* Space for bottom nav */
+  overflow-y: auto; 
+  padding-bottom: 100px; 
 }
+
+/* Reusable Glass Utility */
+.glass-panel, .glass-form, .splash-container, .transaction-item {
+  background: var(--glass-bg-light);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+}
+
+.splash-container {
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.glass-form {
+  padding: 20px;
+  border-radius: var(--radius-lg);
+}
+
+/* Avatar Components */
+.logo-circle-container {
+  width: 120px; height: 120px;
+  background: linear-gradient(135deg, #916f96 0%, #1a2980 100%);
+  box-shadow: 0 0 30px rgba(0, 196, 180, 0.4);
+}
+
+.logo-bg-decoration {
+  width: 160px; height: 160px;
+  top: -20px; left: -20px;
+  z-index: -1;
+}
+
+.avatar-circle-lg { width: 100px; height: 100px; border: 1px solid rgba(89, 156, 153, 0.788); }
+.avatar-circle-sm { width: 50px; height: 50px; }
+.avatar-circle-xs { width: 40px; height: 40px; }
+.avatar-circle-dashed { border: 1px dashed rgba(255,255,255,0.3); }
 
 /* =========================================
    3. COMPONENTS
    ========================================= */
 
 /* --- Buttons --- */
-.btn {
+.btn, .btn-submit, .btn-welcome {
   display: inline-block;
-  padding: 12px 30px;
-  background-color: #485e77;
-  color: #000000;
   text-decoration: none;
   border-radius: 30px;
   font-weight: bold;
   transition: all 0.3s ease;
+  border: none;
+  padding: 12px 30px;
 }
 
+.btn {
+  background-color: #485e77;
+  color: #000;
+}
 .btn:hover {
   background-color: #3a4b60;
   transform: translateY(-2px);
@@ -65,77 +117,60 @@ a:hover {
 }
 
 .btn-welcome {
-  background-color: #4d607e;
-  border: none;
-  color: #ffffff;
+  background-color: rgb(114, 136, 168);
+  color: #114a64;
   border-radius: 16px;
   font-size: 1.1rem;
 }
-
-.btn-welcome:hover {
-  background-color: #3e4e50;
-  color: white;
-}
+.btn-welcome:hover { background-color: #3e4e50; color: white; }
 
 .btn-submit {
-  display: inline-block;
-  padding: 15px;
   background-color: #425c6d; 
   color: #ffffff;
-  text-decoration: none;
-  border-radius: 12px;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  border: none;
+  border-radius: var(--radius-sm);
   width: 100%;
   font-size: 1rem;
+  padding: 15px;
 }
+.btn-submit:hover { background-color: #4f5f80; color: white; }
 
-.btn-submit:hover {
-  background-color: #4f5f80;
-  color: white;
-}
-
-/* Action Buttons (Menu Grid) */
 .btn-action {
   background: rgba(140, 148, 175, 0.05);
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid var(--glass-border);
   color: white;
   padding: 1px;
-  border-radius: 15px;
+  border-radius: var(--radius-md);
   display: flex;
-  flex-direction: column; /* Fixed: Stack icon and text */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1px;
-  text-decoration: none;
   transition: all 0.3s;
 }
-
 .btn-action:hover {
   background: rgba(140, 213, 216, 0.514);
-  border-color: #00C4B4;
-  text-decoration: none;
+  border-color: var(--primary-accent);
   color: white;
 }
 
-/* --- Form Inputs --- */
+/* --- Inputs --- */
+.input-group-icon { position: relative; }
+.input-icon-left { position: absolute; top: 15px; left: 15px; }
+.input-with-padding { padding-left: 45px; }
+
 input {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  background: var(--glass-bg-light);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
   color: white;
-  padding: 15px 15px 15px 45px; /* Left padding for icon */
+  padding: 15px;
   margin: 10px 0;
   width: 100%;
   box-sizing: border-box;
   transition: all 0.3s;
 }
-
-input:focus {
-  outline: none;
-  border-color: rgba(255, 255, 255, 0.5);
-}
+input:focus { outline: none; border-color: rgba(255, 255, 255, 0.5); }
+.login-input { background: rgba(0,0,0,0.2); border-color: rgba(255,255,255,0.05); }
 
 /* --- Bottom Navigation --- */
 .bottom-nav {
@@ -144,10 +179,10 @@ input:focus {
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
-  max-width: 500px;
+  max-width: var(--container-width);
   background: rgba(30, 30, 30, 0.9);
   backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--glass-border);
   border-radius: 30px;
   display: flex;
   justify-content: space-around;
@@ -158,33 +193,19 @@ input:focus {
 
 .nav-item {
   color: #888;
-  text-decoration: none;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   transition: color 0.3s;
 }
-
-.nav-item i {
-  font-size: 1.5rem;
-  margin-bottom: 2px;
-}
-
-.nav-item span {
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-.nav-item.active, .nav-item:hover {
-  color: #00C4B4; /* Teal Accent */
-}
+.nav-item i { font-size: 1.5rem; margin-bottom: 2px; }
+.nav-item span { font-size: 0.75rem; font-weight: 500; }
+.nav-item.active, .nav-item:hover { color: var(--primary-accent); }
 
 /* =========================================
    4. MODULES
    ========================================= */
-
-/* --- Dashboard Modules --- */
 .balance-card {
   text-align: left;
   margin-bottom: 20px;
@@ -193,101 +214,50 @@ input:focus {
   align-items: center;
   gap: 15px;
 }
+.balance-graph { height: 50px; grid-column: auto; }
+.balance-title { font-size: 0.9rem; color: var(--text-muted); }
+.balance-amount { font-size: 2.5rem; font-weight: bold; color: white; margin: 5px 0; }
 
-.balance-graph {
-  height: 50px;
-  grid-column: auto;
-}
-
-.balance-title {
-  font-size: 0.9rem;
-  color: #aaa;
-}
-
-.balance-amount {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: white;
-  margin: 5px 0;
-}
-
-/* Mini Cards (My Cards) */
+/* Mini Cards */
 .mini-card {
   min-width: 150px;
   height: 100px;
-  border-radius: 15px;
+  border-radius: var(--radius-md);
   padding: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: left;
-  border: 1px solid rgba(255,255,255,0.1);
-  text-decoration: none;
+  border: 1px solid var(--glass-border);
   transition: transform 0.2s;
 }
-
-.mini-card:hover {
-    transform: translateY(-3px);
-}
-
+.mini-card:hover { transform: translateY(-3px); }
 .mini-card-visa { background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%); }
 .mini-card-master { background: linear-gradient(135deg, #454d34 0%, #c0c79a 100%); }
 .mini-card-add { background: linear-gradient(135deg, #282927 0%, #aaaaa8 100%); }
 
-.icon-circle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+.icon-circle { display: flex; align-items: center; justify-content: center; }
+.contact-card { min-width: 60px; text-align: center; color: #ccc; }
 
-/* Contacts (Send Money) */
-.contact-card {
-    min-width: 60px;
-    text-align: center;
-    color: #ccc;
-}
-
-/* --- Transaction List --- */
+/* Transaction List */
 .transaction-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 15px;
-  background: rgba(255,255,255,0.03);
-  border-radius: 15px;
+  border-radius: var(--radius-md);
   margin-bottom: 10px;
 }
-
 .t-icon {
-  width: 40px;
-  height: 40px;
-  background: rgba(255,255,255,0.1);
+  width: 40px; height: 40px;
+  background: var(--glass-border);
   border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  margin-right: 15px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; margin-right: 15px;
 }
-
-.t-details {
-  flex-grow: 1;
-  text-align: left;
-}
-
-.t-title {
-  font-weight: bold;
-  display: block;
-}
-
-.t-date {
-  font-size: 0.8rem;
-  color: #888;
-}
-
-.t-amount {
-  font-weight: bold;
-}
-
+.t-details { flex-grow: 1; text-align: left; }
+.t-title { font-weight: bold; display: block; }
+.t-date { font-size: 0.8rem; color: #888; }
+.t-amount { font-weight: bold; }
 .t-amount.negative { color: #ff6b6b; }
-.t-amount.positive { color: #00C4B4; }
+.t-amount.positive { color: var(--primary-accent); }
