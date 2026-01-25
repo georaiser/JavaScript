@@ -3,7 +3,7 @@ console.log('AlkeWallet Loaded');
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Login Logic
+    // Login Logic 
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', function(event) {

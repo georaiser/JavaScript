@@ -17,67 +17,62 @@
         <!-- Header -->
         <div class="d-flex align-items-center mb-4">
             <a href="menu.html" class="text-highlight me-3"><i class="bi bi-chevron-left fs-4"></i></a>
-            <!-- mb-0: No margin bottom, flex-grow-1: Fill space, text-center: Center text, pe-4: Padding end 4 -->
-            <h4 class="mb-0 flex-grow-1 text-center pe-4">Deposit</h4>
+            <!-- mb-0: No margin bottom, flex-grow-1: Fill space, text-center: Center text, pe-4: Padding right 4 -->
+            <h4 class="mb-0 flex-grow-1 text-center pe-4">Payment</h4>
         </div>
 
-        <!-- Destination Account -->
-        <div class="mb-4">
-            <h5 class="mb-3 text-muted small d-flex">Destination Accounts</h5>
-            <div class="d-flex justify-content-between gap-2">
-                
-                <a href="#" class="btn-action flex-fill">
-                    <div class="icon-circle mb-1">
-                        <i class="bi bi-wallet2 fs-5"></i>
-                    </div>
-                    <div class="text-center lh-sm">
-                        <span class="account-label">Main Account</span>
-                        <span class="account-balance">$829,990</span>
-                    </div>
-                </a>
+        <!-- Payment Method -->
+        <h5 class="mb-3 text-muted small d-flex">Payment Method</h5>
+        <div class="scroll-row mb-4">
 
-                <a href="#" class="btn-action flex-fill">
-                    <div class="icon-circle mb-1">
-                        <i class="bi bi-wallet2 fs-5"></i>
-                    </div>
-                    <div class="text-center lh-sm">
-                        <span class="account-label">Saving Account</span>
-                        <span class="account-balance">$38,190</span>
-                    </div>
-                </a>
-
-                <a href="#" class="btn-action flex-fill">
-                    <div class="icon-circle mb-1">
-                        <i class="bi bi-credit-card fs-5"></i>
-                    </div>
-                    <div class="text-center lh-sm">
-                        <span class="account-label">Credit Cards</span>
-                        <span class="account-balance">$2,100,300</span>
-                    </div>
-                </a>
-
-            </div>
+            <!-- Main Account -->
+            <a href="#" class="mini-card mini-card-add btn-action flex-fill">
+                <div class="icon-circle mb-1">
+                    <i class="bi bi-wallet2 fs-5"></i>
+                </div>
+                <div class="text-center lh-sm">
+                    <span class="account-label">Main Account</span>
+                    <span class="account-balance">$829,990</span>
+                </div>
+            </a>
+            <!-- Card 1 -->
+            <a href="#" class="mini-card mini-card-visa text-highlight text-decoration-none">
+                <i class="bi bi-credit-card-2-front fs-5"></i>
+                <div>
+                    <div class="small opacity-75">Visa</div>
+                    <div class="fw-bold">**** 4242</div>
+                </div>
+            </a>
+            <!-- Card 2 -->
+            <a href="#" class="mini-card mini-card-master text-highlight text-decoration-none">
+                <i class="bi bi-credit-card-2-front fs-5"></i>
+                <div>
+                    <div class="small opacity-75">Mastercard</div>
+                    <div class="fw-bold">**** 8821</div>
+                </div>
+            </a>
+            <!-- Add New -->
+            <a href="#" class="mini-card mini-card-add text-highlight text-decoration-none">
+                <i class="bi bi-plus-circle fs-5"></i>
+                <div class="small">New Card</div>
+            </a>
         </div>
 
         <form id="depositForm" class="text-start glass-form">
             <div class="mb-3">
-                <!-- small: Small font, mb-1: Margin bottom -->
                 <label class="small mb-1 text-muted">Amount</label>
                 <div class="input-group-icon">
                     <span class="text-highlight input-icon-left">$</span>
                     <input type="number" id="depositAmount" placeholder="0.00" required class="input-amount">
                 </div>
                 <!-- Quick Amounts -->
-                <!-- d-flex, gap-2: Flex gap, mt-2: Margin top -->
                 <div class="d-flex gap-2 mt-2">
-                    <!-- btn, btn-sm: Bootstrap size. custom btn-quick-amount style -->
                     <button type="button" class="btn btn-sm flex-fill btn-quick-amount">$10</button>
                     <button type="button" class="btn btn-sm flex-fill btn-quick-amount">$20</button>
                     <button type="button" class="btn btn-sm flex-fill btn-quick-amount">$50</button>
                 </div>
             </div>
-            <!-- w-100, mt-2: Spacing and width. shadow-none: Remove shadow -->
-            <button type="submit" class="btn w-100 mt-2 btn-submit shadow-none">Make Deposit</button>
+            <button type="submit" class="btn w-100 mt-2 btn-submit">Make Deposit</button>
         </form>
     </main>
 

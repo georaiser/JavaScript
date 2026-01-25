@@ -12,22 +12,26 @@
 </head>
 
 <body>
+    <!-- Custom 'container' -->
     <main class="container">
         <!-- Header -->
-        <!-- d-flex: Enable flexbox, justify-content-between: Space items to edges, align-items-center: Vertically center -->
+        <!-- d-flex, justify-content-between, align-items-center: Flex header layout (Bootstrap) -->
+        <!-- mb-4: Margin bottom (Bootstrap) -->
         <div class="d-flex justify-content-between align-items-center mb-4">
             <div class="d-flex align-items-center">
-                <!-- bg-secondary: Gray background, rounded-circle: 50% border radius, me-2: Margin right -->
-                <div class="bg-secondary rounded-circle me-2" style="width: 40px; height: 40px;"></div>
+                <!-- rounded-circle: Circular shape (Bootstrap), me-2: Margin end (Bootstrap) -->
+                <div class="rounded-circle me-2 avatar-circle-xs">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <!-- text-start: Left align text (Bootstrap) -->
                 <div class="text-start">
-                    <!-- d-block: Display block to force new line -->
+                    <!-- d-block: Display block (Bootstrap) -->
                     <small class="d-block">Welcome back</small>
-                    <!-- fw-bold: Font weight bold -->
+                    <!-- fw-bold: Bold font (Bootstrap) -->
                     <span class="fw-bold" id="userName">User</span>
                 </div>
             </div>
-            <!-- fs-4: Font size 4 (large) -->
-            <!-- bi-bell: Notification bell icon -->
+            <!-- fs-4: Font size 4 (Bootstrap) -->
             <i class="bi bi-bell fs-4"></i>
         </div>
 
@@ -35,19 +39,20 @@
         <div class="balance-card">
             <div>
                 <div class="balance-title">Total Balance</div>
-                <div class="balance-amount">$767,680</div>
-                <div class="text-success small">
+                <div class="balance-amount" id="userBalance">$767,680</div>
+                <div class="text-success-custom small">
                     <i class="bi bi-arrow-up-short"></i> +3.4% (+$2,134)
                 </div>
             </div>
+
             <!-- Balance Graphic -->
             <div class="balance-graph">
                 <svg width="100%" height="100%" viewBox="0 0 350 50" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 45 C 40 45 50 25 90 30 C 130 35 150 15 190 20 C 230 25 250 5 350 10" stroke="#00C4B4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
                     <defs>
                         <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style="stop-color:#00C4B4;stop-opacity:0.2" />
-                            <stop offset="100%" style="stop-color:#00C4B4;stop-opacity:0" />
+                            <stop offset="0%" style="stop-color:var(--color-primary);stop-opacity:0.2" />
+                            <stop offset="100%" style="stop-color:var(--color-primary);stop-opacity:0" />
                         </linearGradient>
                     </defs>
                     <path d="M0 45 C 40 45 50 25 90 30 C 130 35 150 15 190 20 C 230 25 250 5 350 10 V 50 H 0 Z" fill="url(#grad1)" />
@@ -59,15 +64,20 @@
         <!-- Accounts -->
         <div class="mb-4">
             <h5 class="mb-3 d-flex justify-content-between align-items-center">Accounts</h5>
+            <!-- d-flex, justify-content-between: Layout (Bootstrap), gap-2: Gap between items (Bootstrap) -->
             <div class="d-flex justify-content-between gap-2">
                 
+                <!-- flex-fill: Flex item grows to fill space (Bootstrap) -->
                 <a href="#" class="btn-action flex-fill">
                     <div class="icon-circle mb-1">
+                        <!-- fs-5: Font size 5 (Bootstrap) -->
                         <i class="bi bi-wallet2 fs-5"></i>
                     </div>
+                    
+                    <!-- text-center: Center text (Bootstrap), lh-sm: Line height small (Bootstrap) -->
                     <div class="text-center lh-sm">
-                        <span class="d-block" style="font-size: 0.75rem; opacity: 0.8;">Main Account</span>
-                        <span class="fw-bold" style="font-size: 0.9rem;">$829,990</span>
+                        <span class="account-label">Main Account</span>
+                        <span class="account-balance">$829,990</span>
                     </div>
                 </a>
 
@@ -76,8 +86,8 @@
                         <i class="bi bi-wallet2 fs-5"></i>
                     </div>
                     <div class="text-center lh-sm">
-                        <span class="d-block" style="font-size: 0.75rem; opacity: 0.8;">Saving Account</span>
-                        <span class="fw-bold" style="font-size: 0.9rem;">$38,190</span>
+                        <span class="account-label">Saving Account</span>
+                        <span class="account-balance">$38,190</span>
                     </div>
                 </a>
 
@@ -86,8 +96,8 @@
                         <i class="bi bi-credit-card fs-5"></i>
                     </div>
                     <div class="text-center lh-sm">
-                        <span class="d-block" style="font-size: 0.75rem; opacity: 0.8;">Credit Cards</span>
-                        <span class="fw-bold" style="font-size: 0.9rem;">$-100,500</span>
+                        <span class="account-label">Credit Cards</span>
+                        <span class="account-balance">$-100,500</span>
                     </div>
                 </a>
 
@@ -100,25 +110,25 @@
             <div class="d-flex justify-content-between gap-2">
                 <a href="sendmoney.html" class="btn-action flex-fill">
                     <div class="icon-circle mb-1">
-                        <i class="bi bi-send text-white fs-5"></i>
+                        <i class="bi bi-send text-highlight fs-5"></i>
                     </div>
                     <span>Send</span>
                 </a>
                 <a href="deposit.html" class="btn-action flex-fill">
                     <div class="icon-circle mb-1">
-                        <i class="bi bi-arrow-down-circle text-white fs-5"></i>
+                        <i class="bi bi-arrow-down-circle text-highlight fs-5"></i>
                     </div>
-                    <span>Request</span>
+                    <span>Deposit</span>
                 </a>
-                <a href="#" class="btn-action flex-fill">
+                <a href="payment.html" class="btn-action flex-fill">
                     <div class="icon-circle mb-1">
-                        <i class="bi bi-arrow-up-circle text-white fs-5"></i>
+                        <i class="bi bi-arrow-up-circle text-highlight fs-5"></i>
                     </div>
                     <span>Pay</span>
                 </a>
                 <a href="#" class="btn-action flex-fill">
                     <div class="icon-circle mb-1">
-                        <i class="bi bi-arrow-left-right text-white fs-5"></i>
+                        <i class="bi bi-arrow-left-right text-highlight fs-5"></i>
                     </div>
                     <span>Convert</span>
                 </a>
@@ -130,17 +140,18 @@
             My Cards
             <a href="#" class="small text-decoration-none">See All</a>
         </h5>
-        <div class="d-flex overflow-auto pb-2" style="gap: 15px;">
+        <div class="scroll-row">
             <!-- Card 1 -->
-            <a href="#" class="mini-card mini-card-visa text-white">
+            <a href="#" class="mini-card mini-card-visa text-highlight">
                 <i class="bi bi-credit-card-2-front fs-5"></i>
                 <div>
+                    <!-- small: Small font (Bootstrap), opacity-75: 75% opacity (Bootstrap) -->
                     <div class="small opacity-75">Visa</div>
                     <div class="fw-bold">**** 4242</div>
                 </div>
             </a>
             <!-- Card 2 -->
-            <a href="#" class="mini-card mini-card-master text-white">
+            <a href="#" class="mini-card mini-card-master text-highlight">
                 <i class="bi bi-credit-card-2-front fs-5"></i>
                 <div>
                     <div class="small opacity-75">Mastercard</div>
@@ -153,8 +164,6 @@
                 <div class="small">Add New</div>
             </a>
         </div>
-
-
 
     </main>
 

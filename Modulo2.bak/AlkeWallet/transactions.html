@@ -13,22 +13,19 @@
 
 <body>
     <main class="container">
-        <!-- Header / Search -->
-        <!-- d-flex: Flexbox layout, align-items-center: Center vertically, mb-4: Margin bottom 4 -->
+        <!-- Header -->
         <div class="d-flex align-items-center mb-4">
-            <!-- text-white: White text color, me-3: Margin right 3 -->
-            <a href="menu.html" class="text-white me-3"><i class="bi bi-chevron-left fs-4"></i></a>
-            <!-- mb-0: No bottom margin, flex-grow-1: Take avail space, text-center: Center text -->
+            <a href="menu.html" class="text-highlight me-3"><i class="bi bi-chevron-left fs-4"></i></a>
+            <!-- mb-0: No margin bottom (Bootstrap), flex-grow-1: Fill space (Bootstrap), text-center: Center text (Bootstrap), pe-4: Padding end (Bootstrap) -->
             <h4 class="mb-0 flex-grow-1 text-center pe-4">Latest Transactions</h4>
         </div>
         
-        <!-- mb-4: Add spacing below search -->
+        <!-- mb-4: Margin bottom (Bootstrap) -->
         <div class="mb-4">
-            <!-- position-relative: Parent for absolute icon -->
-            <div class="position-relative">
-                <!-- position-absolute: Overlay icon, text-muted: Gray color -->
-                <i class="bi bi-search position-absolute" style="top: 18px; left: 15px;"></i>
-                <input type="text" placeholder="Search for..." style="padding-left: 40px;">
+            <div class="input-group-icon">
+                <!-- text-muted: Muted text color (Bootstrap) -->
+                <i class="bi bi-search text-muted input-icon-left"></i>
+                <input type="text" placeholder="Search for..." class="input-with-padding">
             </div>
         </div>
 
@@ -39,7 +36,7 @@
                 <div class="t-icon">
                     <!-- text-warning: Yellow/Orange color -->
                     <!-- bi-lightning-charge-fill: Filled lightning icon -->
-                    <i class="bi bi-lightning-charge-fill text-warning"></i>
+                    <i class="bi bi-lightning-charge-fill text-warning-custom"></i>
                 </div>
                 <div class="t-details">
                     <span class="t-title">Services</span>
@@ -52,7 +49,7 @@
             <div class="transaction-item">
                 <div class="t-icon">
                     <!-- bi-cart-fill: Shopping cart icon -->
-                    <i class="bi bi-cart-fill text-info"></i>
+                    <i class="bi bi-cart-fill text-info-custom"></i>
                 </div>
                 <div class="t-details">
                     <span class="t-title">Groceries</span>
@@ -65,7 +62,7 @@
             <div class="transaction-item">
                 <div class="t-icon">
                     <!-- bi-arrow-down-left-circle-fill: Receive money icon -->
-                    <i class="bi bi-arrow-down-left-circle-fill text-success"></i>
+                    <i class="bi bi-arrow-down-left-circle-fill text-success-custom"></i>
                 </div>
                 <div class="t-details">
                     <span class="t-title">Funds Received</span>
@@ -78,7 +75,7 @@
             <div class="transaction-item">
                 <div class="t-icon">
                     <!-- bi-music-note-beamed: Music note icon -->
-                    <i class="bi bi-music-note-beamed text-primary"></i>
+                    <i class="bi bi-music-note-beamed text-brand"></i>
                 </div>
                 <div class="t-details">
                     <span class="t-title">Subscriptions</span>

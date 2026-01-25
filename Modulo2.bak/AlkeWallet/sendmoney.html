@@ -12,64 +12,64 @@
 </head>
 
 <body>
-    <!-- container: Standard Bootstrap container class -->
+    <!-- container: Custom container for responsive width -->
     <main class="container">
         <!-- Header -->
-        <!-- d-flex: Flexbox layout -->
-        <!-- align-items-center: Vertically center items -->
-        <!-- mb-4: Margin bottom spacing -->
         <div class="d-flex align-items-center mb-4">
-            <a href="menu.html" class="text-white me-3"><i class="bi bi-chevron-left fs-4"></i></a>
+            <a href="menu.html" class="text-highlight me-3"><i class="bi bi-chevron-left fs-4"></i></a>
             <h4 class="mb-0 flex-grow-1 text-center pe-4">Send Money</h4>
         </div>
 
         <!-- Recent Contacts -->
         <h5 class="text-start mb-3">Recent</h5>
-        <div class="d-flex overflow-auto pb-2 mb-4" style="gap: 15px;">
+        <div class="scroll-row mb-4">
             <!-- Contact 1 -->
             <a href="#" class="contact-card text-decoration-none">
-                <div class="bg-secondary rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
-                    <i class="bi bi-person-fill fs-3 text-white"></i>
+                <!-- rounded-circle: 50% radius (Bootstrap), mx-auto: Horizontal center (Bootstrap), mb-2: Margin bottom (Bootstrap) -->
+                <!-- d-flex, align-items-center, justify-content-center: Flex centering (Bootstrap) -->
+                <div class="rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center avatar-circle-sm">
+                    <i class="bi bi-person-fill fs-3 text-highlight"></i>
                 </div>
-                <div class="small text-white">Mom</div>
+                <!-- small: Small text (Bootstrap) -->
+                <div class="small text-highlight">Mom</div>
             </a>
             <!-- Contact 2 -->
             <a href="#" class="contact-card text-decoration-none">
-                <div class="bg-secondary rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
-                     <i class="bi bi-person-fill fs-3 text-white"></i>
+                <div class="rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center avatar-circle-sm">
+                     <i class="bi bi-person-fill fs-3 text-highlight"></i>
                 </div>
-                <div class="small text-white">Dad</div>
+                <div class="small text-highlight">Dad</div>
             </a>
             <!-- Contact 3 -->
             <a href="#" class="contact-card text-decoration-none">
-                <div class="bg-secondary rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
-                     <i class="bi bi-person-fill fs-3 text-white"></i>
+                <div class="rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center avatar-circle-sm">
+                     <i class="bi bi-person-fill fs-3 text-highlight"></i>
                 </div>
-                <div class="small text-white">Mike</div>
+                <div class="small text-highlight">Willy</div>
             </a>
             <!-- Add New -->
             <a href="#" class="contact-card text-decoration-none">
-                <div class="rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; border: 1px dashed rgba(255,255,255,0.3);">
-                     <i class="bi bi-plus-lg fs-4 text-white"></i>
+                <div class="rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center avatar-circle-sm avatar-circle-dashed">
+                     <i class="bi bi-plus-lg fs-4 text-highlight"></i>
                 </div>
-                <div class="small text-white">New</div>
+                <div class="small text-highlight">New</div>
             </a>
         </div>
 
-        <form id="sendMoneyForm" class="text-start" style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 20px;">
+        <form id="sendMoneyForm" class="text-start glass-form">
             <div class="mb-3">
-                <label class="small mb-1 text-white-50">Contact</label>
-                <div class="position-relative">
-                    <i class="bi bi-person position-absolute" style="top: 15px; left: 15px;"></i>
-                    <input type="text" placeholder="ID or Contact" required style="padding-left: 45px;">
+                <label class="small mb-1 text-muted">Contact</label>
+                <div class="input-group-icon">
+                    <i class="bi bi-person input-icon-left"></i>
+                    <input type="text" id="recipientInput" placeholder="ID or Contact" required class="input-with-padding">
                 </div>
             </div>
             
             <div class="mb-3">
-                <label class="small mb-1 text-white-50">Amount</label>
-                <div class="position-relative">
-                    <span class="position-absolute text-white" style="top: 15px; left: 15px;">$</span>
-                    <input type="number" placeholder="0.00" required style="padding-left: 35px; font-size: 1.2rem;">
+                <label class="small mb-1 text-muted">Amount</label>
+                <div class="input-group-icon">
+                    <span class="text-highlight input-icon-left">$</span>
+                    <input type="number" id="sendAmount" placeholder="0.00" required class="input-amount">
                 </div>
             </div>
             <button type="submit" class="btn w-100 mt-2 btn-submit shadow-none">Send Now</button>
