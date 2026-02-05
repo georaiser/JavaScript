@@ -15,7 +15,7 @@ if (userName !== null && userName !== "") {
 // LESSON 2: VARIABLES, EXPRESSIONS AND CONDITIONAL STATEMENTS
 
 // Create variables that store numbers, text, and boolean values
-const pi = "3.14159";             // pi variable (constant)
+const PI = "3.14159";             // pi variable (constant)
 
 let isStudent = confirm("Are you a student?");
 
@@ -45,8 +45,8 @@ if (isStudent) {
                     let radius = parseFloat(prompt("Enter the radius of the cylinder:"));
                     let height = parseFloat(prompt("Enter the height of the cylinder:"));
                     
-                    let area = 2 * pi * radius * (radius + height);
-                    let volume = pi * radius ** 2 * height;
+                    let area = 2 * PI * radius * (radius + height);
+                    let volume = PI * radius ** 2 * height;
                     
                     console.log("The area of the cylinder is: " + area.toFixed(2));
                     console.log("The volume of the cylinder is: " + volume.toFixed(2));
