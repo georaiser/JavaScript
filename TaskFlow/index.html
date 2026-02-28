@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TaskFlow — Task Manager</title>
+
+  <!-- Bootstrap 5 -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-color-scheme px-4">
+    <span class="navbar-brand fw-bold fs-5">TaskFlow</span>
+    <span id="stats" class="text-white-50 small">Loading tasks...</span>
+    <button class="btn btn-light btn-sm ms-auto" id="btn-add-task">
+      + Add Task
+    </button>
+  </nav>
+
+  <!-- Search bar -->
+  <div class="container-fluid px-4 py-3">
+    <input
+      type="text"
+      id="input-search"
+      class="form-control"
+      placeholder="🔍 Search tasks..."
+    />
+  </div>
+
+  <!-- Notification -->
+  <div class="container-fluid px-4">
+    <div id="notification" class="alert alert-success d-none" role="alert"></div>
+  </div>
+
+  <!-- Kanban Board — 3 columns -->
+  <div class="container-fluid px-4 pb-4">
+    <div class="row g-3">
+
+      <!-- TO DO -->
+      <div class="col-12 col-md-4">
+        <div class="kanban-column">
+          <div class="kanban-col-header todo">
+            <span class="col-dot bg-primary"></span>
+            To Do
+            <span class="badge bg-secondary ms-auto" id="count-todo">0</span>
+          </div>
+          <div
+            class="kanban-cards"
+            id="col-todo"
+            data-status="todo"
+          >
+            <!-- Cards injected by JS -->
+
+            <!-- Sample placeholder card (remove when JS is wired) -->
+            <div class="task-card" draggable="true">
+              <div class="task-desc">Design homepage layout</div>
+              <div class="task-meta">
+                <span class="badge-status status-todo">To Do</span>
+                <span class="task-date">📅 Mar 1</span>
+              </div>
+            </div>
+
+            <div class="task-card" draggable="true">
+              <div class="task-desc">Write unit tests</div>
+              <div class="task-meta">
+                <span class="badge-status status-todo">To Do</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- IN PROGRESS -->
+      <div class="col-12 col-md-4">
+        <div class="kanban-column">
+          <div class="kanban-col-header in-progress">
+            <span class="col-dot bg-warning"></span>
+            In Progress
+            <span class="badge bg-secondary ms-auto" id="count-inprogress">0</span>
+          </div>
+          <div
+            class="kanban-cards"
+            id="col-inprogress"
+            data-status="in-progress"
+          >
+            <!-- Cards injected by JS -->
+
+            <!-- Sample placeholder card -->
+            <div class="task-card" draggable="true">
+              <div class="task-desc">Build REST API endpoints</div>
+              <div class="task-meta">
+                <span class="badge-status status-inprogress">In Progress</span>
+                <span class="task-countdown" id="countdown-sample">⏱ calculating…</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- DONE -->
+      <div class="col-12 col-md-4">
+        <div class="kanban-column">
+          <div class="kanban-col-header done">
+            <span class="col-dot bg-success"></span>
+            Done
+            <span class="badge bg-secondary ms-auto" id="count-done">0</span>
+          </div>
+          <div
+            class="kanban-cards"
+            id="col-done"
+            data-status="done"
+          >
+            <!-- Cards injected by JS -->
+
+            <!-- Sample placeholder card -->
+            <div class="task-card completed" draggable="true">
+              <div class="task-desc">Set up project structure</div>
+              <div class="task-meta">
+                <span class="badge-status status-done">Done</span>
+                <span class="task-date text-success">✔ Completed</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Add Task Modal -->
+  <div class="modal fade" id="modal-add" tabindex="-1" aria-labelledby="modal-add-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-add-title">New Task</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="form-task" novalidate>
+            <div class="mb-3">
+              <label for="input-desc" class="form-label">Description <span class="text-danger">*</span></label>
+              <input
+                type="text"
+                id="input-desc"
+                class="form-control"
+                placeholder="What needs to be done?"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="input-date" class="form-label">Due date <span class="text-muted small">(optional)</span></label>
+              <input type="date" id="input-date" class="form-control" />
+            </div>
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">Add Task</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- App entry point (ES module) -->
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

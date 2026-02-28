@@ -1,0 +1,147 @@
+/* TaskFlow — custom styles on top of Bootstrap 5
+   Bootstrap handles layout, grid, badges, modals, and navbar.
+   This file covers only what Bootstrap doesn't: kanban columns, cards, drag states. */
+
+/* Navbar color scheme */
+.navbar-color-scheme {
+  background-color: #303c4e;
+  border-bottom: 1px solid #2a2d42;
+}
+
+/* ── Column shell ─────────────────────────────── */
+.kanban-column {
+  background: #1c1f2e; /* dark surface */
+  border: 1px solid #2a2d42; /* dark border */
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Column header bar */
+.kanban-col-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  border-bottom: 1px solid #2a2d42;
+  background: #151721;
+}
+
+/* Color accent on left border per column */
+.kanban-column:has(#col-todo)        { border-top: 3px solid #3b82f6; }
+.kanban-column:has(#col-inprogress)  { border-top: 3px solid #f59e0b; }
+.kanban-column:has(#col-done)        { border-top: 3px solid #22c55e; }
+
+/* Small dot indicator */
+.col-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* Card drop zone */
+.kanban-cards {
+  flex: 1;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
+
+/* Drag-over highlight (wired in JS later) */
+.kanban-cards.drag-over {
+  background: #eff6ff;
+  border: 2px dashed #3b82f6;
+  border-radius: 8px;
+}
+
+/* ── Task card ────────────────────────────────── */
+.task-card {
+  background: #151721;
+  border: 1px solid #2a2d42;
+  border-radius: 10px;
+  padding: 12px 14px;
+  cursor: grab;
+  transition: transform .15s, box-shadow .15s, border-color .15s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.task-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0,0,0,.3);
+  border-color: #6c63ff;
+}
+
+/* While dragging */
+.task-card.dragging {
+  opacity: .45;
+  transform: rotate(1.5deg);
+  cursor: grabbing;
+}
+
+/* Completed card */
+.task-card.completed {
+  opacity: .65;
+  border-left: 3px solid #22c55e;
+}
+
+.task-desc {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e2e4f0;
+  line-height: 1.4;
+}
+.task-card.completed .task-desc {
+  text-decoration: line-through;
+  color: #8b8fa8;
+}
+
+.task-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.task-date {
+  font-size: 11px;
+  color: #8b8fa8;
+}
+
+.task-countdown {
+  font-size: 11px;
+  font-weight: 700;
+  color: #f59e0b;
+}
+.task-countdown.overdue { color: #ef4444; }
+
+/* ── Status badges ────────────────────────────── */
+.badge-status {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 20px;
+}
+.status-todo       { background: #dbeafe; color: #1e40af; }
+.status-inprogress { background: #fef9c3; color: #92400e; }
+.status-done       { background: #dcfce7; color: #166534; }
+
+/* ── Search bar ───────────────────────────────── */
+#input-search {
+  max-width: 400px;
+}
+
+/* ── Responsive tweaks ────────────────────────── */
+@media (max-width: 767px) {
+  .kanban-column { min-height: 200px; }
+}
