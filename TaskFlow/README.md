@@ -1,6 +1,6 @@
 # 📋 TaskFlow — Task Manager
 
-_Module #4 Evaluation — Advanced JavaScript · Alkemy_
+_Module #4 Evaluation
 
 ---
 
@@ -25,17 +25,6 @@ TaskFlow/
 
 ---
 
-## Evaluation Coverage
-
-| Step                                                                  | Where                       |
-| --------------------------------------------------------------------- | --------------------------- |
-| OOP — `Task` class + `TaskManager`                                    | `Task.js`, `TaskManager.js` |
-| DOM Events — submit, click, drag/drop, keyup, mouseover               | `main.js`                   |
-| Async — setTimeout (add delay), setInterval (countdown), notification | `main.js`                   |
-| API — fetch + localStorage + try/catch                                | `api.js`                    |
-
----
-
 ## How to Run
 
 No build tools needed — just a local server (ES modules require one):
@@ -55,5 +44,3 @@ npx serve .
 - `POST /todos` → simulate saving a new task
 
 ---
-
-_Alkemy — Advanced JavaScript Module #4_

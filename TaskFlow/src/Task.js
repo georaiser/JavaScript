@@ -1,21 +1,22 @@
 export class Task {
   constructor({ description, dueDate }) {
-    this.id = Date.now();
+    this.id = String(Date.now()); // String ID avoids type-mismatch bugs
     this.description = description;
     this.status = 'todo';
     this.createdAt = new Date();
-    this.dueDate = dueDate;
+    this.dueDate = dueDate || null;
   }
 
   changeStatus(newStatus) {
     this.status = newStatus;
   }
 
-  isDone() {
-    return this.status === 'done';
+  updateDetails({ description, dueDate }) {
+    this.description = description;
+    this.dueDate = dueDate || null;
   }
 
-  getSummary() {
-    return `${this.description} - ${this.status} - ${this.createdAt} - ${this.dueDate}`;
+  isDone() {
+    return this.status === 'done';
   }
 }

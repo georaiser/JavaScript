@@ -1,62 +1,35 @@
-/**
- * api.js — API consumption + localStorage (Step 5)
- * ──────────────────────────────────────────────────
- * API: JSONPlaceholder — https://jsonplaceholder.typicode.com
- *
- * Functions:
- *
- *   loadTasksFromAPI()
- *     → GET /todos?_limit=5
- *     → Maps items to { description, status } objects
- *     → Returns array, or [] on error
- *
- *   saveTaskToAPI(task)
- *     → POST /todos with JSON body
- *     → Returns response json, or null on error
- *
- *   saveToStorage(tasks)
- *     → JSON.stringify and saves to localStorage key 'taskflow_tasks'
- *
- *   loadFromStorage()
- *     → JSON.parse from localStorage 'taskflow_tasks'
- *     → Returns array, or [] if not found
- *
- * TODO Phase 4:
- *   1. Implement loadTasksFromAPI() with async/await + try/catch
- *   2. Implement saveTaskToAPI(task) with fetch POST
- *   3. Implement saveToStorage(tasks) and loadFromStorage()
- */
-
+// api.js — JSONPlaceholder API + localStorage
 const API_URL = 'https://jsonplaceholder.typicode.com';
 const STORAGE_KEY = 'taskflow_tasks';
 
 export const loadTasksFromAPI = async () => {
   try {
-    const response = await fetch(`${API_URL}/todos?_limit=5`);
-    if (!response.ok) throw new Error('API Error');
-    const data = await response.json();
+    const res = await fetch(`${API_URL}/todos?_limit=5`);
+    if (!res.ok) throw new Error('Fetch failed');
+    const data = await res.json();
     return data.map(item => ({
-      description: item.title,
+      id: String(item.id),
+      description: item.title, // ← this is where "delectus aut autem" comes from
       status: item.completed ? 'done' : 'todo',
       dueDate: null
     }));
-  } catch (error) {
-    console.error('Failed to load from API', error);
+  } catch (err) {
+    console.error('loadTasksFromAPI:', err);
     return [];
   }
 };
 
 export const saveTaskToAPI = async (task) => {
   try {
-    const response = await fetch(`${API_URL}/todos`, {
+    const res = await fetch(`${API_URL}/todos`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(task)
     });
-    if (!response.ok) throw new Error('API Error');
-    return await response.json();
-  } catch (error) {
-    console.error('Failed to save to API', error);
+    if (!res.ok) throw new Error('Post failed');
+    return await res.json();
+  } catch (err) {
+    console.error('saveTaskToAPI:', err);
     return null;
   }
 };
@@ -64,8 +37,8 @@ export const saveTaskToAPI = async (task) => {
 export const saveToStorage = (tasks) => {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
-  } catch (error) {
-    console.error('Failed to save to storage', error);
+  } catch (err) {
+    console.error('saveToStorage:', err);
   }
 };
 
@@ -73,8 +46,8 @@ export const loadFromStorage = () => {
   try {
     const data = localStorage.getItem(STORAGE_KEY);
     return data ? JSON.parse(data) : [];
-  } catch (error) {
-    console.error('Failed to load from storage', error);
+  } catch (err) {
+    console.error('loadFromStorage:', err);
     return [];
   }
 };
